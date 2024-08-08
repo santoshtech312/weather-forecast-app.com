@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body class="background">
+
+        <div class="weather-container">
+
+            <h2 class="header"><span class="w-logo"><img src="./img/weather-cloudy.png" alt="w-logo"></span>current
+                weather today arround your city<span class="w-logo"><img src="./img/weather-cloudy.png"
+                        alt="w-logo"></span></h2>
+
+            <div class="w-wrap">
+                <div class="w-wrap0">
+                    <div id="weather" class="open-menubar">
+                        <span class="w-menu-icons"><img src="./img/heavy-rain-logo.png" alt="heavy-rain-logo"></span>
+                        <p class="w-menubar">weather</p>
+
+                    </div>
+                    <div class="open-menubar">
+                        <span class="w-menu-icons"><img src="./img/smart-city.png" alt="smart-city"></span>
+                        <p class="w-menubar">cities</p>
+
+                    </div>
+                    <div class="open-menubar">
+                        <span class="w-menu-icons"><img src="./img/pin.png" alt="maps"></span>
+                        <p class="w-menubar">map</p>
+
+                    </div>
+                    <div class="open-menubar">
+                        <span class="w-menu-icons"><img src="./img/settings.png" alt="setting"></span>
+                        <p class="w-menubar">setting</p>
+
+                    </div>
+                </div>
+                <div class="w-wrap-left">
+                    <div class="w-wrap1">
+                        <div class="w-country-search">
+                            <input type="text" name="" id="search" placeholder="choose your city" spellcheck="false">
+                            <button id="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                        <div class="w-location">
+                            <div class="w-city">
+                                <div class="city-loca"><i class="fa-solid fa-location-dot"></i><span class="city-name"
+                                        id="city-name-data"></span>
+                                    <p class="w-date" id="current-day"></p>
+                                </div>
+                                <h3 id="w-temp-data" class="w-temp"></h3>
+                            </div>
+
+                            <div class="w-condition-img">
+                                <img src="./img/rainy_weather.png" alt="rain-img">
+                            </div>
+                        </div>
+                        <div class="w-icons">
+                            <div class="w-icons-flex">
+                                <span id="w-icons-data" class="w-icons-img"></span>
+                                <span id="icons-name-d1" class="icons-name"></span>
+                            </div>
+                            <div class="w-icons-flex">
+                                <span class="w-icons-img"><img src="./img/eye.png" alt="snowy"></span>
+                                <span class="icons-name">visibility :</span>
+                                <span id="visibility-data"></span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="w-wrap2">
+                        <div class="w-country-search">
+                            <p class="w-details-head">air condition</p>
+                        </div>
+                        <div class="w-condition">
+                            <div class="w-con-data">
+                                <div>
+                                    <p class="w-con-head"><img src="./img/travel.png" alt=""><span>Real
+                                            feel</span></p>
+                                    <h3 class="head-data" id="real-feel">4km/h</h3>
+                                </div>
+                                <div>
+                                    <p class="w-con-head"><img src="./img/chance rain.png" alt="rian"><span>Chance
+                                            of rain</span></p>
+                                    <h3 id="chance-rain" class="head-data">4km/h</h3>
+                                </div>
+                            </div>
+
+                            <div class="w-con-data">
+                                <div>
+                                    <p class="w-con-head"><img src="./img/wind-power.png" alt=""><span>wind</span></p>
+                                    <h3 id="wind-data" class="head-data">4km/h</h3>
+
+                                </div>
+                                <div>
+
+                                    <p class="w-con-head"><img src="./img/humidity.png" alt=""><span>humidity</span></p>
+                                    <h3 id="humidity-data" class="head-data">4km/h</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="w-wrap-right">
+                    <div class="w-country-search">
+                        <p class="w-details-head">7-days forecast</p>
+                    </div>
+                    <div class="w-location">
+                        <div class="w-city">
+                            <div class="city-loca"><i class="fa-solid fa-location-dot"></i><span
+                                    class="city-name">gurgaon
+                                    india</span></div>
+                            <h3 class="w-temp">43&deg;C</h3>
+                        </div>
+
+                        <div class="w-condition-img">
+                            <img src="./img/rainy_weather.png" alt="rain-img">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <script src="./script.js"></script>
+    </body>
+
+</html>
