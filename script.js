@@ -46,24 +46,28 @@ console.log(apiURL);
 async function myWheatherData(city) {
   try {
     const response = await fetch(`${apiURL} + ${city} + &appid=${APIKey}`);
-    var data = await response.json();
-    console.log(data);
-    cityNameData.innerHTML = data.name + " " + data.sys.country + ".";
-    wheatherTemp.innerHTML = Math.round(data.main.temp) + "°C";
-    realFeel.innerHTML = Math.round(data.main.feels_like) + "°C";
-    chanceRain.innerHTML = data.weather[0].description;
-    windData.innerHTML = Math.round(data.wind.speed) + "Km/h";
-    humidityData.innerHTML = Math.round(data.main.humidity) + "%";
-    let icon = data.weather[0].icon;
-    let showIcon = getIcons(icon);
-    const imgElement = `<img src="./img/${showIcon}" alt="rain-img">`;
-    wConditionImg.innerHTML = imgElement;
-    const wIconsElement = `<img src="./img/${showIcon}" alt="rain-img">`;
-    wIconsData.innerHTML = wIconsElement;
-    iconsNameD1.innerHTML = data.weather[0].description;
-    visibilityData.innerHTML = data.visibility / 1000 + " km/h";
+    if (response.status == 404) {
+      window.alert("No record found");
+    } else {
+      var data = await response.json();
+      console.log(data);
+      cityNameData.innerHTML = data.name + " " + data.sys.country + ".";
+      wheatherTemp.innerHTML = Math.round(data.main.temp) + "°C";
+      realFeel.innerHTML = Math.round(data.main.feels_like) + "°C";
+      chanceRain.innerHTML = data.weather[0].description;
+      windData.innerHTML = Math.round(data.wind.speed) + "Km/h";
+      humidityData.innerHTML = Math.round(data.main.humidity) + "%";
+      let icon = data.weather[0].icon;
+      let showIcon = getIcons(icon);
+      const imgElement = `<img src="./img/${showIcon}" alt="weather-img">`;
+      wConditionImg.innerHTML = imgElement;
+      const wIconsElement = `<img src="./img/${showIcon}" alt="weather-img">`;
+      wIconsData.innerHTML = wIconsElement;
+      iconsNameD1.innerHTML = data.weather[0].description;
+      visibilityData.innerHTML = data.visibility / 1000 + " km/h";
 
-    saveData(city);
+      saveData(city);
+    }
   } catch (error) {
     console.log(error);
   }
@@ -73,11 +77,8 @@ function saveData(city) {
 }
 
 searchBtn.addEventListener("click", () => {
-  if (searchInput.value == true) {
-    myWheatherData(searchInput.value);
-  } else {
-    window.alert("No record found");
-  }
+  const city = searchInput.value;
+  myWheatherData(city);
 });
 
 window.addEventListener("load", () => {
@@ -93,8 +94,10 @@ function getIcons(icon) {
     "01d": "clear-day.png",
     "01n": "clear-night.png",
     "02d": "day-few-cloud.png",
+    "03d": "scattled-cloud.png",
     "03n": "scattled-cloud.png",
     "04n": "broken-cloud.png",
+    "04d": "broken-cloud.png",
     "09n": "slower-rain.png",
     "10d": "w-rain.png",
     "11n": "thunderstorm.png",
