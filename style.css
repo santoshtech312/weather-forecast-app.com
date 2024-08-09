@@ -12,7 +12,7 @@ body {
 }
 
 .background {
-  background: url("./img/wp-full-img.webp") center/100% no-repeat fixed;
+  background: url("./img/wp-full-img.webp") center/cover no-repeat fixed;
 }
 .weather-container {
   display: flex;
@@ -47,7 +47,7 @@ body {
 /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
 .w-wrap0 {
   width: 100px;
-  height: 80dvh;
+  height: 470px;
   background-color: #2ba1e242;
   padding: 5px;
   border-radius: 13px;
@@ -93,6 +93,7 @@ body {
 }
 .w-country-search {
   border-radius: 15px;
+  text-align: center;
 }
 .w-country-search input {
   font-size: 1.2rem;
@@ -108,8 +109,12 @@ body {
   border-radius: 15px;
   border: 1px solid #c2ffff;
   cursor: pointer;
-
   background: #c2ffff44;
+  transition: 0.3s ease;
+}
+.w-country-search button:hover {
+  transform: scale(1.1);
+  background-color: #43ffff;
 }
 ::placeholder {
   color: #000000ad;
@@ -119,14 +124,14 @@ body {
   display: flex;
   align-items: center;
   gap: 10rem;
-  padding: 2.5rem 0.5rem 1rem 0.5rem;
+  padding: 1rem 0.5rem;
 }
 
 .w-city {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 1.5rem;
 }
 .w-city .city-loca,
 .city-name {
@@ -210,4 +215,73 @@ body {
 }
 .w-con-data .head-data {
   padding-left: 2rem;
+}
+
+/* ///////////////////// Rsponisve page ////////////////////////////////////////// */
+
+@media only screen and (max-width: 1150px) {
+  .w-wrap {
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .w-wrap {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .weather-container .header {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .header .w-logo img {
+    width: 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .weather-container .header {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .w-wrap0 {
+    width: 96vw;
+    height: 15dvh;
+    gap: 2.5rem;
+    flex-direction: row;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .background {
+    background-position-y: center;
+  }
+  .w-wrap-left,
+  .w-wrap-right {
+    width: 96vw;
+  }
+  .w-location {
+    justify-content: space-between;
+    gap: 3rem;
+  }
+  .w-country-search input {
+    width: 85%;
+    text-align: center;
+  }
+  .w-condition {
+    gap: 7rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .w-wrap0 {
+    gap: 5vw;
+  }
+  .w-condition {
+    gap: 3rem;
+  }
+  .w-location {
+    gap: 2rem;
+  }
 }

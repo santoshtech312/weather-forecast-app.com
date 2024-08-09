@@ -47,7 +47,7 @@ async function myWheatherData(city) {
   try {
     const response = await fetch(`${apiURL} + ${city} + &appid=${APIKey}`);
     if (response.status == 404) {
-      window.alert("No record found");
+      window.alert("No city found");
     } else {
       var data = await response.json();
       console.log(data);
@@ -67,6 +67,7 @@ async function myWheatherData(city) {
       visibilityData.innerHTML = data.visibility / 1000 + " km/h";
 
       saveData(city);
+      searchInput.value = "";
     }
   } catch (error) {
     console.log(error);
